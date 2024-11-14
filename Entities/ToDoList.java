@@ -1,6 +1,6 @@
 package Entities;
 
-public class TodoList {
+public class ToDoList {
     private String todo;
     private int id;
 

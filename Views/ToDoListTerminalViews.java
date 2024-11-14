@@ -1,15 +1,15 @@
-package views;
+package Views;
 
-import Entities.TodoList;
-import services.TodoListServices;
+import Entities.ToDoList;
+import Services.ToDoListServices;
 
 import java.util.Scanner;
 
-public class TodoListTerminalViews implements TodoListViews {
+public class ToDoListTerminalViews implements ToDoListViews {
     public static Scanner scanner = new Scanner(System.in);
-    private final TodoListServices todoListServices;
+    private final ToDoListServices todoListServices;
 
-    public TodoListTerminalViews(final TodoListServices todoListServices) {
+    public ToDoListTerminalViews(final ToDoListServices todoListServices) {
         this.todoListServices = todoListServices;
     }
     public static String input(String info) {
@@ -20,7 +20,7 @@ public class TodoListTerminalViews implements TodoListViews {
 
     public void showTodoList() {
         System.out.println("TODO LIST");
-        TodoList[] todos = todoListServices.getTodoList();
+        ToDoList[] todos = todoListServices.getTodoList();
         for (var i = 0; i < todos.length; i++) {
             var todo = todos[i];
             if (todo != null) {

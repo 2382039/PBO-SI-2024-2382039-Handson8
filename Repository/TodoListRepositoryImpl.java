@@ -1,17 +1,17 @@
-package repositories;
+package Repository;
 
-import Entities.TodoList;
+import Entities.ToDoList;
 
 public class TodoListRepositoryImpl implements TodoListRepository {
-    public static TodoList[] todos = new TodoList[10];
+    public static ToDoList[] todos = new ToDoList[10];
 
     @Override
-    public TodoList[] getAll() {
+    public ToDoList[] getAll() {
         return todos;
     }
 
     @Override
-    public void add(TodoList todoList) {
+    public void add(ToDoList todoList) {
         resizeArrayIfFull();
         // add todo to array that has null element
         for (int i = 0; i < todos.length; i++) {
@@ -31,8 +31,8 @@ public class TodoListRepositoryImpl implements TodoListRepository {
         }
     }
     private static void resizeArrayToTwoTimesBigger() {
-        TodoList[] temp = todos;
-        todos = new TodoList[todos.length * 2];
+        ToDoList[] temp = todos;
+        todos = new ToDoList[todos.length * 2];
         for (int i = 0; i < temp.length; i++) {
             todos[i] = temp[i];
         }
@@ -80,7 +80,7 @@ public class TodoListRepositoryImpl implements TodoListRepository {
     }
 
     @Override
-    public Boolean edit(TodoList todoList) {
+    public Boolean edit(ToDoList todoList) {
         if (isSelectedTodoNotValid(todoList.getId())) {
             return false;
         }
